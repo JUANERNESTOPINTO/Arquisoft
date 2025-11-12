@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASR de Integridad - Sistema de Pedidos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ASR de Integridad</h1>
+            <p class="subtitle">Sistema de Validación de Búsquedas en Pedidos</p>
+        </header>
+
+        <main>
+            <section class="info-section">
+                <div class="info-card">
+                    <h2>📋 Requerimiento de Seguridad</h2>
+                    <p>Como operario, necesito que el sistema valide la consistencia de los datos y detecte ataques de data tampering en las búsquedas.</p>
+                    <ul>
+                        <li>✓ Validación del 100% de búsquedas</li>
+                        <li>✓ Detección de SQL Injection</li>
+                        <li>✓ Detección de XSS (Cross-Site Scripting)</li>
+                        <li>✓ Detección de Path Traversal</li>
+                        <li>✓ Detección de Command Injection</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="search-section">
+                <h2>🔍 Búsqueda de Pedidos</h2>
+                <div class="search-container">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="Buscar pedido por ID, cliente o estado..."
+                        autocomplete="off"
+                    >
+                    <button id="searchButton" class="search-button">Buscar</button>
+                </div>
+                
+                <div id="validationStatus" class="validation-status hidden">
+                    <div class="status-content">
+                        <span class="status-icon"></span>
+                        <span class="status-message"></span>
+                    </div>
+                </div>
+
+                <div id="detectionDetails" class="detection-details hidden">
+                    <h3>⚠️ Detalles de la Detección</h3>
+                    <div class="details-content"></div>
+                </div>
+            </section>
+
+            <section class="results-section">
+                <h2>📊 Resultados de Búsqueda</h2>
+                <div id="resultsContainer" class="results-container">
+                    <p class="no-results">Ingrese un término de búsqueda para ver resultados</p>
+                </div>
+            </section>
+
+            <section class="stats-section">
+                <h2>📈 Estadísticas de Validación</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalSearches">0</div>
+                        <div class="stat-label">Total de Búsquedas</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="validSearches">0</div>
+                        <div class="stat-label">Búsquedas Válidas</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="blockedSearches">0</div>
+                        <div class="stat-label">Búsquedas Bloqueadas</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="validationRate">100%</div>
+                        <div class="stat-label">Tasa de Validación</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Sistema de Validación de Integridad v1.0 | Arquisoft 2025</p>
+        </footer>
+    </div>
+
+    <script src="validator.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
