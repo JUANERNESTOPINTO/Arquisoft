@@ -12,12 +12,13 @@ class DataIntegrityValidator {
                 /(\bxp_)|(\bsp_)|(\b0x[0-9a-f]+\b)/gi
             ],
             xss: [
-                /<script[^>]*>.*?<\/script>/gi,
-                /<iframe[^>]*>.*?<\/iframe>/gi,
+                /<script[\s\S]*?<\/script\s*>/gi,
+                /<iframe[\s\S]*?<\/iframe\s*>/gi,
+                /<script/gi,
                 /javascript:/gi,
                 /on\w+\s*=/gi,
                 /<img[^>]*src[^>]*>/gi,
-                /<object[^>]*>.*?<\/object>/gi,
+                /<object[\s\S]*?<\/object\s*>/gi,
                 /<embed[^>]*>/gi
             ],
             pathTraversal: [
